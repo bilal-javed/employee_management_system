@@ -10,6 +10,8 @@ gem 'rails', '3.2.18'
 
 gem 'mysql2', '~> 0.3.10'
 
+gem 'rails_12factor'
+
 
 
 
