@@ -10,8 +10,9 @@ gem 'rails', '3.2.18'
 
 gem 'mysql2', '~> 0.3.10'
 
-gem 'rails_12factor'
-
+gem 'rails_12factor', group: :production
+gem 'puma'
+gem 'pg'
 
 
 
