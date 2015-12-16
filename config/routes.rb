@@ -1,8 +1,14 @@
 EmployeeManagementSystem::Application.routes.draw do
 
   root to: "employees#index"
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  
 
   devise_for :users
+  ActiveAdmin.routes(self)
 
   
   resources :employees
