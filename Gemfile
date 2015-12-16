@@ -12,6 +12,8 @@ gem 'mysql2', '~> 0.3.10'
 
 gem 'rails_12factor', group: :production
 gem 'puma'
+
+#postgreausql
 gem 'pg'
 
 
