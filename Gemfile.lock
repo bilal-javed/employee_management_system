@@ -30,6 +30,10 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.3)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -50,8 +54,15 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mimemagic (0.3.0)
     multi_json (1.11.2)
     mysql2 (0.3.20)
+    paperclip (4.3.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     pg (0.18.4)
     polyglot (0.3.5)
     puma (2.15.3)
@@ -112,6 +123,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2 (~> 0.3.10)
+  paperclip
   pg
   puma
   rails (= 3.2.18)

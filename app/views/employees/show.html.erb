@@ -20,6 +20,11 @@
   <%= @employee.dateofbirth %>
 </p>
 
+<p>
+	<%= image_tag @employee.attachments.first.photo.url(:medium
+		) if @employee.attachments.present? %>
+</p>
+
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

@@ -27,6 +27,11 @@
     <%= f.label :dateofbirth %><br />
     <%= f.datetime_select :dateofbirth %>
   </div>
+  <div class="field">
+    <%= f.fields_for :attachments do |photo| %>
+      <%= photo.file_field :photo %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
