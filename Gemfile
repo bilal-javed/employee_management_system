@@ -8,13 +8,16 @@ gem 'rails', '3.2.18'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2', '~> 0.3.10'
+group :development do
+	gem 'mysql2', '~> 0.3.10'
+end
 
-gem 'rails_12factor', group: :production
-gem 'puma'
 
-#postgreausql
-gem 'pg'
+group :production do
+	gem 'rails_12factor'
+	gem 'puma'
+	gem 'pg'
+end
 
 #bootstrap
 gem 'bootstrap-sass', '3.2.0.2'

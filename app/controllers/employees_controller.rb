@@ -1,9 +1,9 @@
 class EmployeesController < ApplicationController
+
+  before_filter :set_employee, only: [:show, :edit, :update, :destroy]
+  before_filter :set_departement, only: [:create]
   # GET /employees
   # GET /employees.json
-
-  before_filter :authenticate_user!
-
   def index
     @employees = Employee.all
 
@@ -16,7 +16,6 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @employee = Employee.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,29 +37,19 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
-    @employee = Employee.find(params[:id])
   end
 
   # POST /employees
   # POST /employees.json
   def create
-    @employee = Employee.new(params[:employee])
-
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render json: @employee, status: :created, location: @employee }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
-    end
+    @employee = @departement.employees.new(params[:employee])
+    @employee.save
+    redirect_to @employee.departement
   end
 
   # PUT /employees/1
   # PUT /employees/1.json
   def update
-    @employee = Employee.find(params[:id])
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
@@ -76,7 +65,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    @employee = Employee.find(params[:id])
+    
     @employee.destroy
 
     respond_to do |format|
@@ -84,4 +73,12 @@ class EmployeesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+    def set_comment
+      @employee = Employee.find(params[:id])
+    end
+
+    def set_departement
+      @departement = Departement.find(params[:departement_id])
+    end
 end

@@ -1,0 +1,22 @@
+<%= form_for [@departement, @employee] do |form| %>
+	
+	<div class="field">
+		<%= form.label :name %><br />
+		<%= form.text_field :name %>
+	</div>
+	<div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+  </div>
+  <div class="field">
+    <%= form.label :qualification %><br />
+    <%= form.text_field :qualification %>
+  </div>
+  <div class="field">
+    <%= form.label :dateofbirth %><br />
+    <%= form.datetime_select :dateofbirth %>
+  </div>
+	<div class="actions">
+		<%= form.submit %>
+	</div>
+<% end %>

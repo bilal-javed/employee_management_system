@@ -1,0 +1,19 @@
+<% @employees.each do |employee| %>
+	<p>
+		<span><b> Name: </b></span>
+		<%= employee.name %>
+	</p>
+	<p>
+		<span><b> Email: </b></span>
+		<%= employee.email%>
+	</p>
+	<p>
+		<span><b> Qualification: </b></span>
+		<%= employee.qualification %>
+	</p>
+	<p>
+		<span><b> Date of Birth: </b></span>
+		<%= employee.dateofbirth %>
+	</p>
+
+<% end %>

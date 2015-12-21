@@ -1,6 +1,6 @@
 EmployeeManagementSystem::Application.routes.draw do
 
-  root to: "employees#index"
+  root to: "departements#index"
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -10,8 +10,9 @@ EmployeeManagementSystem::Application.routes.draw do
   devise_for :users
   ActiveAdmin.routes(self)
 
-  
-  resources :employees
+  resources :departements do
+    resources :employees
+  end
 
 
   # The priority is based upon order of creation:
