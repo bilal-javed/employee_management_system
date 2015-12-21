@@ -1,5 +1,6 @@
-<h1>New departement</h1>
+<div class="container">
+	<h1>New departement</h1>
+	<%= render 'form' %>
+	<%= button_to 'Back', departements_path, method: :get, :class => "btn btn-md" %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', departements_path %>

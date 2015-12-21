@@ -1,23 +1,32 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="row">
+	<div class="panel panel-primary">
+  <div class="panel-heading">Departement Information</div>
+  <div class="panel-body">
+    <p>
+		  <b>Name:</b>
+		  <%= @departement.name %>
+		</p>
 
-<p>
-  <b>Name:</b>
-  <%= @departement.name %>
-</p>
+		<p>
+		  <b>Email:</b>
+		  <%= @departement.email %>
+		</p>
 
-<p>
-  <b>Email:</b>
-  <%= @departement.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%= @departement.phone %>
-</p>
-
-
-<%= link_to 'Edit', edit_departement_path(@departement) %> |
-<%= link_to 'Back', departements_path %>
-
+		<p>
+		  <b>Phone:</b>
+		  <%= @departement.phone %>
+		</p>
+  </div>
+	<div>
+		<table>
+			<tr>
+				<td><%= button_to 'Edit', edit_departement_path(@departement), method: :get, :class => "btn btn-warning btn-md" %></td>
+				<td><%= button_to 'Back', departements_path, method: :get, :class => "btn btn-md" %></td>
+			</tr>
+		</table>
+	</div>
+</div>
 <%= render "employees/new_employee_form" %>
 <%= render "employees/show_employees_form" %>

@@ -1,5 +1,10 @@
+<div class="form-color">
 <%= form_for [@departement, @employee] do |form| %>
-	
+  <div>
+    <h3>
+      <span>Add Employee</span>
+    </h3>
+  </div>
 	<div class="field">
 		<%= form.label :name %><br />
 		<%= form.text_field :name %>
@@ -13,10 +18,11 @@
     <%= form.text_field :qualification %>
   </div>
   <div class="field">
-    <%= form.label :dateofbirth %><br />
-    <%= form.datetime_select :dateofbirth %>
-  </div>
+    <%= form.label "Date of Birth" %><br />
+    <%= form.date_select :dateofbirth %>
+  </div> <br />
 	<div class="actions">
-		<%= form.submit %>
+		<%= form.submit :class => "btn btn-success btn-md" %>
 	</div>
 <% end %>
+</div>

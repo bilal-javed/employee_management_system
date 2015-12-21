@@ -11,3 +11,20 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.custom-style{
+	margin: 1%;
+	padding: 1%;
+}
+
+table tr td{
+	padding: 2px;
+}
+
+.form-color{
+	background-color: #428BCA;
+	padding: 1%;
+}
+span{
+	color: #fff;
+}

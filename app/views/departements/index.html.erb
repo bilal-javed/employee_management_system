@@ -1,27 +1,34 @@
-<h1>Listing departements</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @departements.each do |departement| %>
-  <tr>
-    <td><%= departement.name %></td>
-    <td><%= departement.email %></td>
-    <td><%= departement.phone %></td>
-    <td><%= link_to 'Show', departement %></td>
-    <td><%= link_to 'Edit', edit_departement_path(departement) %></td>
-    <td><%= link_to 'Destroy', departement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6"><h4>Departements</h4></div>
+    <div class="col-lg-6 text-right">
+      <%= button_to 'Signout',  destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-md"%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <%= button_to 'New Departement', new_departement_path, method: :get, :class => "btn btn-primary btn-md" %>
+    </div>
+  </div>
+</div>
 <br />
-
-<%= link_to 'New Departement', new_departement_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <%@departements.each do |departement|%>
+        <div class="col-lg-3 bg-primary custom-style">  <!-- panel panel-primary -->
+          <h4 class="lead"><%= departement.name %></h4>
+          <p><%= departement.email %></p>
+          <p><%= departement.phone %></p> <br />
+          <table>
+            <tr>
+              <td> <%= button_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %> </td>
+              <td> <%= button_to 'Edit', edit_departement_path(departement), method: :get, :class => "btn btn-warning btn-md icon icon-bullhorn" %></td>
+              <td> <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

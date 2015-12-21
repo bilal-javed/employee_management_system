@@ -1,3 +1,4 @@
+<div class="form-color">
 <%= form_for(@departement) do |f| %>
   <% if @departement.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,11 @@
       </ul>
     </div>
   <% end %>
-
+  <!-- <div class="field">
+    <h3>
+     <span>New Departement</span>
+    </h3>
+  </div> -->
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -22,8 +27,9 @@
   <div class="field">
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
-  </div>
+  </div> <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-success btn-md"%>
   </div>
 <% end %>
+</div>
