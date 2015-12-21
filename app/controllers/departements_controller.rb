@@ -16,7 +16,7 @@ class DepartementsController < ApplicationController
   # GET /departements/1
   # GET /departements/1.json
   def show
-  	
+
   	@employee = Employee.new
     @employees = @departement.employees
 
@@ -45,6 +45,7 @@ class DepartementsController < ApplicationController
   # POST /departements
   # POST /departements.json
   def create
+  	@departement = Departement.new(params[:departement])
 
     respond_to do |format|
       if @departement.save
