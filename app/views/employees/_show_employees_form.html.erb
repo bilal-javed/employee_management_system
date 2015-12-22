@@ -18,9 +18,8 @@
 					<span><b> Date of Birth: </b></span>
 					<%= employee.dateofbirth %>
 				</p>
-				<p>
-					<%= image_tag @employee.attachments.first.photo.url(:medium
-					) if @employee.attachments.present? %>
+					<%= image_tag employee.attachments.first.photo.url(:medium
+					) if employee.attachments.present? %>
 				</p>
 				<!--<%= link_to 'Destroy', departement_employee_path(employee), method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %> -->
 			</div>

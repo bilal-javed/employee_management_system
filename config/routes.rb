@@ -1,5 +1,8 @@
 EmployeeManagementSystem::Application.routes.draw do
 
+  resources :reviews
+
+
   root to: "departements#index"
   
   devise_for :admin_users, ActiveAdmin::Devise.config

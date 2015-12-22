@@ -6,4 +6,5 @@ class Departement < ActiveRecord::Base
   accepts_nested_attributes_for :attachments
 
   has_many :employees
+  has_many :reviews
 end
