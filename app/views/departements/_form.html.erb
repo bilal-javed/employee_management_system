@@ -1,5 +1,5 @@
 <div class="form-color">
-<%= form_for(@departement) do |f| %>
+<%= form_for(@departement) do |form| %>
   <% if @departement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@departement.errors.count, "error") %> prohibited this departement from being saved:</h2>
@@ -17,19 +17,24 @@
     </h3>
   </div> -->
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= form.label :name %><br />
+    <%= form.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
+    <%= form.label :phone %><br />
+    <%= form.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= form.fields_for :attachments do |photo| %>
+      <%= photo.file_field :photo %>
+    <% end %>
   </div> <br />
   <div class="actions">
-    <%= f.submit :class => "btn btn-success btn-md"%>
+    <%= form.submit :class => "btn btn-success btn-md"%>
   </div>
 <% end %>
 </div>

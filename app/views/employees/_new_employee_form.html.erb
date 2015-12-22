@@ -14,13 +14,19 @@
     <%= form.text_field :email %>
   </div>
   <div class="field">
+    <%= form.fields_for :attachments do |photo| %>
+      <%= photo.file_field :photo %>
+    <% end %>
+  </div>
+  <div class="field">
     <%= form.label :qualification %><br />
     <%= form.text_field :qualification %>
   </div>
   <div class="field">
     <%= form.label "Date of Birth" %><br />
     <%= form.date_select :dateofbirth %>
-  </div> <br />
+  </div>
+  <br />
 	<div class="actions">
 		<%= form.submit :class => "btn btn-success btn-md" %>
 	</div>

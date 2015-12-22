@@ -30,7 +30,7 @@ class DepartementsController < ApplicationController
   # GET /departements/new.json
   def new
     @departement = Departement.new
-    # @departement.attachments.new
+    @departement.attachments.new
 
     respond_to do |format|
       format.html # new.html.erb

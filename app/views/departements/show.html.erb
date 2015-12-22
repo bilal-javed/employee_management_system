@@ -18,6 +18,10 @@
 		  <b>Phone:</b>
 		  <%= @departement.phone %>
 		</p>
+		<p>
+			<%= image_tag @departement.attachments.first.photo.url(:medium
+			) if @departement.attachments.present? %>
+		</p>
   </div>
 	<div>
 		<table>

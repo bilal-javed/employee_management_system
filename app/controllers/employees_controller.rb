@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
 
   before_filter :set_employee, only: [:show, :edit, :update, :destroy]
-  before_filter :set_departement, only: [:create]
+  before_filter :set_departement, only: [:create, :destroy]
   # GET /employees
   # GET /employees.json
   def index
@@ -27,7 +27,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new.json
   def new
     @employee = Employee.new
-    @employee.attachments.new
+    @departement.employees.attachments.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -74,8 +74,9 @@ class EmployeesController < ApplicationController
     end
   end
   private
-    def set_comment
-      @employee = Employee.find(params[:id])
+    def set_employee
+      @employee = @departement.employee.find(params[:id])
+      # @employee = Employee.find(params[:id])
     end
 
     def set_departement
