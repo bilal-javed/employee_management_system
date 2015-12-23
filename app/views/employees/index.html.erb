@@ -6,7 +6,7 @@
     <th>Email</th>
     <th>Qualification</th>
     <th>Dateofbirth</th>
-    <th></th>
+    <th>Image</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,6 +17,8 @@
     <td><%= employee.email %></td>
     <td><%= employee.qualification %></td>
     <td><%= employee.dateofbirth %></td>
+    <td><%= image_tag employee.attachments.first.photo.url(:medium
+          ) if employee.attachments.present? %></td>
   </tr>
 <% end %>
 </table>
