@@ -17,7 +17,7 @@
     <td><%= employee.email %></td>
     <td><%= employee.qualification %></td>
     <td><%= employee.dateofbirth %></td>
-    <td><%= image_tag employee.attachments.first.photo.url(:medium
+    <td><%= image_tag employee.attachments.first.photo.url(:thumb
           ) if employee.attachments.present? %></td>
   </tr>
 <% end %>
