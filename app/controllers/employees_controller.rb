@@ -1,11 +1,12 @@
 class EmployeesController < ApplicationController
 
   before_filter :set_employee, only: [:show, :edit, :update, :destroy]
-  before_filter :set_departement, only: [:new, :create, :destroy]
+  before_filter :set_departement, only: [:index, :new, :create, :destroy]
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    # @employees = Employee.all
+    @employees = @department.employees
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +46,17 @@ class EmployeesController < ApplicationController
     @employee = @department.employees.new(params[:employee])
     # @employee = Employee.new(params[:employee])
     @employee.save
-    redirect_to @employee.departement
+    # redirect_to @employee.departement
+    # redirect_to departements_path
+    respond_to do |format|
+      if @employee.save
+        format.html { redirect_to departements_path, notice: 'Employee was successfully created.' }
+        format.json { render json: departements_path, status: :created, location: departements_path }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @employee.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # PUT /employees/1
