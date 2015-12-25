@@ -9,5 +9,6 @@ class Departement < ActiveRecord::Base
 
   has_many :employees
   has_many :reviews
-
+  has_one :user
+  
 end

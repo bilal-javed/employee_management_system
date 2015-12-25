@@ -1,6 +1,5 @@
 class DepartementsController < ApplicationController
 
-	before_filter :authenticate_user!
 
 	before_filter :set_departement, except: [:index, :new, :create]
 
@@ -19,6 +18,9 @@ class DepartementsController < ApplicationController
 
   	@employee = Employee.new
     @employees = @departement.employees
+
+    @review = Review.new
+    @reviews = @departement.reviews
 
     respond_to do |format|
       format.html # show.html.erb

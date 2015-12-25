@@ -1,0 +1,10 @@
+<% @reviews.each do |review| %>
+	<p>
+		<span> <%= review.created_at %> </span>
+	</p>
+	<p>
+		<span><b> Review: </b></span>
+		<%= review.review %>
+	</p>
+
+<% end %>
