@@ -28,7 +28,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new.json
   def new
     @employee = @department.employees.new
-    @employee.attachments.new
+    @employee.attachment.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @employee }

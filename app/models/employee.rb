@@ -4,8 +4,8 @@ class Employee < ActiveRecord::Base
 
   validates_uniqueness_of :name
   
-  has_many :attachments, as: :attachable, dependent: :destroy
-  accepts_nested_attributes_for :attachments
+  has_one :attachment, as: :attachable, dependent: :destroy
+  accepts_nested_attributes_for :attachment
 
   belongs_to :departement
 end

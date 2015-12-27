@@ -14,8 +14,8 @@
           <p><b>Email Address: </b><%= employee.email %></p>
           <p><b>Qualification: </b><%= employee.qualification %></p>
           <p><b>Date of Birth: </b><%= employee.dateofbirth %></p>
-          <p><b>Photo: </b><%= image_tag employee.attachments.first.photo.url(:thumb
-              ) if employee.attachments.present? %>
+          <p><b>Photo: </b><%= image_tag employee.attachment.photo.url(:thumb
+              ) if employee.attachment.present? %>
           </p>
         </div>
       <% end %>
