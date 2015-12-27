@@ -1,10 +1,27 @@
 <% @reviews.each do |review| %>
+	<div class="form-color">
 	<p>
-		<span> <%= review.created_at %> </span>
+		<span> <%= review.created_at %> </span> <br />
 	</p>
 	<p>
 		<span><b> Review: </b></span>
 		<%= review.review %>
 	</p>
-
+	<!-- <p>
+		<b>Review ID: </b><%= review.id %>
+	</p>
+	<p>
+		<b>Review User ID: </b><%= review.user_id %>
+	</p>
+	<p>
+		<b>Departement ID: </b><%= review.departement_id %>
+	</p>
+	<p>
+		<b>Current User ID: </b><%= current_user.id %>
+	</p> -->
+	<% if review.user_id == current_user.id %>
+		<%= link_to 'Edit', edit_departement_review_path(@departement.id, review.id), method: :get, :class => 'btn btn-warning' %>
+		<%= link_to 'Destroy', departement_review_path(@departement.id, review.id), method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	</div>
 <% end %>

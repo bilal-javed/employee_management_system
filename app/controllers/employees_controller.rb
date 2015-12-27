@@ -27,7 +27,6 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   # GET /employees/new.json
   def new
-    # @employee = Employee.new
     @employee = @department.employees.new
     @employee.attachments.new
     respond_to do |format|

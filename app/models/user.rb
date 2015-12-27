@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   belongs_to :departement
+  has_many :reviews
 end

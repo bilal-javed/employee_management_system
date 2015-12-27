@@ -3,11 +3,11 @@ class ReviewsController < InheritedResources::Base
   before_filter :authenticate_user!, only: [:create]
 
 	before_filter :set_review, only: [:show, :edit, :update, :destroy]
-  before_filter :set_departement, only: [:create]
+  before_filter :set_departement, only: [:create, :edit, :destroy]
 
   def index
     @reviews = Review.all
-    respond_with(@@reviews)
+    respond_with(@reviews)
   end
 
   def show
@@ -24,18 +24,20 @@ class ReviewsController < InheritedResources::Base
 
   def create
     @review = @departement.reviews.new(params[:review])
+    # @review = current_user.reviews.new(params[:review])
+    @review.user_id = current_user.id
     @review.save
     redirect_to @review.departement
   end
 
   def update
     @review.update_attributes(params[:review])
-    respond_with(@review)
+    redirect_to @review.departement
   end
 
   def destroy
     @review.destroy
-    respond_with(@review)
+    redirect_to @review.departement
   end
 
   private
