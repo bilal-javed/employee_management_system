@@ -26,14 +26,14 @@
 	<div>
 		<table>
 			<tr>
-				<td><%= button_to 'Edit', edit_departement_path(@departement), method: :get, :class => "btn btn-warning btn-md" %></td>
-				<td><%= button_to 'Back', departements_path, method: :get, :class => "btn btn-md" %></td>
+				<td><%= link_to 'Edit', edit_departement_path(@departement), method: :get, :class => "btn btn-warning btn-md" %></td>
+				<td><%= link_to 'Back', departements_path, method: :get, :class => "btn btn-md" %></td>
 			</tr>
 		</table>
 	</div>
 </div>
 
-<%= button_to 'Show Employees', departement_employees_path(@departement), method: :get, :class => "btn btn-info" %>
+<%= link_to 'Show Employees', departement_employees_path(@departement), method: :get, :class => "btn btn-info" %>
 
 <%= render "reviews/form"%>
 <%= render "reviews/show_reviews_form"%>

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-lg-6">
       <h4>Departements</h4>
@@ -8,14 +8,14 @@
     </div>
     <div class="col-lg-6 text-right">
       <% if current_user != nil%>
-        <%= button_to 'Signout',  destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-md"%>
+        <%= link_to 'Signout',  destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-md"%>
       <% end %>
     </div>
   </div>
   </div>
   <div class="row">
     <div class="col-lg-12">
-      <%= button_to 'New Departement', new_departement_path, method: :get, :class => "btn btn-success btn-md" %>
+      <%= link_to 'New Departement', new_departement_path, method: :get, :class => "btn btn-success btn-md" %>
     </div>
   </div>
 </div>
@@ -34,12 +34,12 @@
     </p>
           <table>
             <tr>
-              <td> <%= button_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %> </td>
-              <td> <%= button_to 'Edit', edit_departement_path(departement), method: :get, :class => "btn btn-warning btn-md icon icon-bullhorn" %></td>
+              <td> <%= link_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %> </td>
+              <td> <%= link_to 'Edit', edit_departement_path(departement), method: :get, :class => "btn btn-warning btn-md icon icon-bullhorn" %></td>
               <td> <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %></td>
             </tr>
           </table>
-          <%= button_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
+          <%= link_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
         </div>
       <% end %>
     </div>
