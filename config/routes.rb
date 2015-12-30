@@ -13,6 +13,7 @@ EmployeeManagementSystem::Application.routes.draw do
   resources :departements do
     resources :employees
     resources :reviews
+    resources :projects
   end
 
 

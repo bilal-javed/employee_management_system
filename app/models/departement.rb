@@ -1,6 +1,6 @@
 class Departement < ActiveRecord::Base
 	
-  attr_accessible :email, :name, :phone, :attachments_attributes
+  attr_accessible :email, :name, :phone, :attachments_attributes, :category
 
   validates_uniqueness_of :name
   
@@ -10,5 +10,6 @@ class Departement < ActiveRecord::Base
   has_many :employees
   has_many :reviews
   has_one :user
+  has_many :projects
   
 end

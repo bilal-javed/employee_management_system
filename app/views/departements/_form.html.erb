@@ -29,6 +29,13 @@
     <%= form.text_field :phone %>
   </div>
   <div class="field">
+    <%= form.label :category %><br />
+    <%= form.text_field :category %>
+    <!-- <%= form.fields_for :type do |type| %>
+      <%= select_tag(:category, options_for_select([['Services', 1], ['Technical', 2]])) %>
+    <% end %> -->
+  </div> <br />
+  <div class="field">
     <%= form.fields_for :attachments do |photo| %>
       <%= photo.file_field :photo %>
     <% end %>

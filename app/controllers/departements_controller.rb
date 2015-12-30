@@ -21,6 +21,9 @@ class DepartementsController < ApplicationController
 
     @review = Review.new
     @reviews = @departement.reviews
+
+    @project = Project.new
+    @projects = @departement.projects
    
     respond_to do |format|
       format.html # show.html.erb

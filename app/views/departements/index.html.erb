@@ -40,6 +40,9 @@
             </tr>
           </table>
           <%= link_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
+          <% if departement.category == 'Technical'%>
+          <%= link_to 'Add Project', new_departement_project_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
+          <% end %>
         </div>
       <% end %>
     </div>

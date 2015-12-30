@@ -18,6 +18,11 @@
 		  <b>Phone:</b>
 		  <%= @departement.phone %>
 		</p>
+
+		<p>
+		  <b>Category:</b>
+		  <%= @departement.category %>
+		</p>
 		<p>
 			<%= image_tag @departement.attachments.first.photo.url(:medium
 			) if @departement.attachments.present? %>
@@ -34,6 +39,9 @@
 </div>
 
 <%= link_to 'Show Employees', departement_employees_path(@departement), method: :get, :class => "btn btn-info" %>
+<% if current_user != nil%>
+<%= link_to 'Show Projects', departement_projects_path(@departement), method: :get, :class => "btn btn-info" %>
+<% end %>
 
 <%= render "reviews/form"%>
 <%= render "reviews/show_reviews_form"%>
