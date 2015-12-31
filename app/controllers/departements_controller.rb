@@ -45,13 +45,17 @@ class DepartementsController < ApplicationController
 
   # GET /departements/1/edit
   def edit
+
   end
 
   # POST /departements
   # POST /departements.json
   def create
   	@departement = Departement.new(params[:departement])
+    # current_user.departement_id = @departemet.id
+    @departement.user_id = current_user.id
 
+   
     respond_to do |format|
       if @departement.save
         format.html { redirect_to @departement, notice: 'Departement was successfully created.' }
@@ -65,7 +69,6 @@ class DepartementsController < ApplicationController
   # PUT /departements/1
   # PUT /departements/1.json
   def update
-
     respond_to do |format|
       if @departement.update_attributes(params[:departement])
         format.html { redirect_to @departement, notice: 'Departement was successfully updated.' }

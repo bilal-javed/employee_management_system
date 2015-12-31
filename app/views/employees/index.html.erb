@@ -16,6 +16,10 @@
           <p><b>Date of Birth: </b><%= employee.dateofbirth %></p>
           <p><b>Photo: </b><%= image_tag employee.attachments.first.photo.url(:thumb) if employee.attachments.present? %>
           </p>
+          <p>
+          <span><b> Project: </b></span>
+          <%= employee.projects%>
+        </p>
         </div>
       <% end %>
     </div>

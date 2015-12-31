@@ -44,6 +44,12 @@ class EmployeesController < ApplicationController
   def create
     @employee = @department.employees.new(params[:employee])
     # @employee = Employee.new(params[:employee])
+
+    @projects = Project.where(:id => params[:project])
+    @employee.projects << @projects
+
+
+
     @employee.save
     # redirect_to @employee.departement
     # redirect_to departements_path

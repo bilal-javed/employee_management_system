@@ -28,11 +28,13 @@
       <%= f.label :dateofbirth %><br />
       <%= f.date_select :dateofbirth %>
     </div>
+    <%= f.label :Projects %>
+    <%= select_tag "project", options_from_collection_for_select(Project.all, 'id', 'name',@employee.projects.map{ |j| j.id }), :multiple => true %>
     <div class="field">
       <%= f.fields_for :attachments do |photo| %>
       <%= photo.file_field :photo %>
       <% end %>
-    </div> 
+    </div>
     <div class="actions">
       <%= f.submit %>
     </div>
