@@ -43,7 +43,7 @@
 <%= link_to 'Show Projects', departement_projects_path(@departement), method: :get, :class => "btn btn-info" %>
 <% end %>
 
-<% if current_user!=nil && @departement.user_id != current_user.id %>
+<% if current_user==nil || @departement.user_id != current_user.id %>
 	<%= render "reviews/form"%>
 <% end %>
 <%= render "reviews/show_reviews_form"%>
