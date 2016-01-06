@@ -44,6 +44,6 @@
 <% end %>
 
 <% if current_user==nil || @departement.user_id != current_user.id %>
-	<%= render "reviews/form"%>
+	<%= render "reviews/form" %>
 <% end %>
-<%= render "reviews/show_reviews_form"%>
+<%= render "reviews/review"%>

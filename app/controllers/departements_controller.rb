@@ -1,6 +1,6 @@
 class DepartementsController < ApplicationController
 
-
+  before_filter :authenticate_user!, only: [:new]
 	before_filter :set_departement, except: [:index, :new, :create]
 
 	def index

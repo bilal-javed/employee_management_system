@@ -18,7 +18,9 @@
           </p>
           <p>
           <span><b> Project: </b></span>
-          <%= employee.projects%>
+          <% employee.projects.each do |project| %>
+            <%= project.name %>
+          <% end %>
         </p>
         </div>
       <% end %>

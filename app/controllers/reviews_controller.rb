@@ -26,8 +26,15 @@ class ReviewsController < InheritedResources::Base
     @review = @departement.reviews.new(params[:review])
     # @review = current_user.reviews.new(params[:review])
     @review.user_id = current_user.id
-    @review.save
-    redirect_to @review.departement
+
+    
+    if @review.save
+      respond_to do |format|
+        format.html { redirect_to @review.departement  }
+        # format.json { render json: comment }
+        format.js
+      end
+    end
   end
 
   def update
