@@ -39,6 +39,8 @@ end
 
 gem 'jquery-rails', '~> 2.3.0'
 
+gem 'thinking-sphinx', '~> 2.0.0'
+
 #paperclip
 gem 'paperclip'
 

@@ -4,8 +4,12 @@ class DepartementsController < ApplicationController
 	before_filter :set_departement, except: [:index, :new, :create]
 
 	def index
-    @departements = Departement.all
-
+    # @departements = Departement.all
+    if params[:search]
+      @departements = Departement.search params[:search]
+    else
+      @departements = Departement.all
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @departements }

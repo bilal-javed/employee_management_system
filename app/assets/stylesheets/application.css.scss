@@ -13,8 +13,14 @@
 @import "bootstrap";
 
 .custom-style{
-	margin: 1%;
-	padding: 1%;
+/*	margin: 1%;
+*	padding: 1%;
+*/
+	height: 391px;
+}
+
+.custom-style img{
+	height: 170px;
 }
 
 table tr td{

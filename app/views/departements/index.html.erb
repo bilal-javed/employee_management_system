@@ -3,7 +3,7 @@
     <div class="col-lg-6">
       <h4>Departements</h4>
       <% if current_user != nil%>
-        <h4> Welcome, <%=current_user.first_name %> <%= current_user.email%><%= current_user.id%></h4>
+        <h4> Welcome, <%=current_user.first_name %> <%=current_user.last_name %>  </h4>
       <% end %>
     </div>
     <div class="col-lg-6 text-right">
@@ -12,15 +12,21 @@
       <% end %>
     </div>
   </div>
-  </div>
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
       <%= link_to 'New Departement', new_departement_path, method: :get, :class => "btn btn-success btn-md" %>
     </div>
+    <div class="col-lg-6 text-right">
+      <%= form_tag departements_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+      <% end %>
+    </div>
   </div>
-</div>
 <br />
-<div class="container">
+<!-- <div class="container"> -->
   <div class="row">
     <div class="col-lg-12">
       <%@departements.each do |departement|%>
@@ -30,9 +36,14 @@
           <p><%= departement.phone %></p> <br />
           <p>
       <%= image_tag departement.attachments.first.photo.url(:medium
-      ) if departement.attachments.present? %>
+      ), :class => "img-responsive" if departement.attachments.present? %>
     </p>
-          <table>
+          <%= link_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %>
+          <% if current_user!=nil && departement.user_id == current_user.id %>
+                <td> <%= link_to 'Edit', edit_departement_path(departement), method: :get, :class => "btn btn-warning btn-md icon icon-bullhorn" %>
+                <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
+          <% end %>
+          <!-- <table>
             <tr>
               <td> <%= link_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %> </td>
               <% if current_user!=nil && departement.user_id == current_user.id %>
@@ -40,7 +51,7 @@
                 <td> <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
-          </table>
+          </table> -->
           <% if current_user!=nil && departement.user_id == current_user.id %>
             <%= link_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
             <% if departement.category == 'Technical'%>

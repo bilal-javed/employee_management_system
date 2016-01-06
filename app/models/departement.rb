@@ -12,5 +12,10 @@ class Departement < ActiveRecord::Base
   has_many :projects
 
   belongs_to :user
+
+  define_index do
+  	indexes name
+  	indexes category
+  end
   
 end
