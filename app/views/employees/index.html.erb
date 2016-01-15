@@ -17,11 +17,11 @@
           <p><b>Photo: </b><%= image_tag employee.attachments.first.photo.url(:thumb) if employee.attachments.present? %>
           </p>
           <p>
-          <span><b> Project: </b></span>
-          <% employee.projects.each do |project| %>
-            <%= project.name %>
-          <% end %>
-        </p>
+            <span><b> Project: </b></span>
+            <% employee.projects.each do |project| %>
+              <%= project.name %>
+            <% end %>
+          </p>
         </div>
       <% end %>
     </div>

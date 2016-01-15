@@ -1,13 +1,7 @@
-<div class="form-color" id="reviews_show">
 	<p>
-		<span> <%= @review.created_at %> </span> <br />
-	</p>
-	<p>
-		
-		<%= @review.review %>
+	<%= @review.review %>
 	</p>
 	<% if current_user!=nil && @review.user_id == current_user.id %>
 		<%= link_to 'Edit', edit_departement_review_path(@departement.id, @review.id), method: :get, :class => 'btn btn-warning' %>
 		<%= link_to 'Destroy', departement_review_path(@departement.id, @review.id), method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
 	<% end %>
-</div>

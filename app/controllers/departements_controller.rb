@@ -55,9 +55,11 @@ class DepartementsController < ApplicationController
   # POST /departements
   # POST /departements.json
   def create
-  	@departement = Departement.new(params[:departement])
+    @departement = Departement.new(params[:departement])
+    current_user.departement = @departement
+  	#@departement = Departement.new(params[:departement])
     # current_user.departement_id = @departemet.id
-    @departement.user_id = current_user.id
+    #@departement.user_id = current_user.id
 
    
     respond_to do |format|
