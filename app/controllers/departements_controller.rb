@@ -2,6 +2,7 @@ class DepartementsController < ApplicationController
 
   before_filter :authenticate_user!, only: [:new]
 	before_filter :set_departement, except: [:index, :new, :create]
+  before_filter :revoke_user, only: [:edit, :update]
 
 	def index
     # @departements = Departement.all
@@ -48,9 +49,9 @@ class DepartementsController < ApplicationController
   end
 
   # GET /departements/1/edit
-  def edit
-
-  end
+  # if @current_user!=nil && @departement.user_id == current_user.id
+    def edit
+    end
 
   # POST /departements
   # POST /departements.json
@@ -101,5 +102,11 @@ class DepartementsController < ApplicationController
   def set_departement
     @departement = Departement.find(params[:id])
   end
+  def revoke_user
+      if user_signed_in? && @departement.user_id == current_user.id
+      else
+        redirect_to departements_path
+      end
+    end
 end
 

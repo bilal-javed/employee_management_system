@@ -6,7 +6,7 @@
   <div class="panel-body">
     <p>
 		  <b>Name:</b>
-		  <%= @departement.name %>
+		  <%= best_in_place @departement, :name %>
 		</p>
 
 		<p>
@@ -23,6 +23,7 @@
 		  <b>Category:</b>
 		  <%= @departement.category %>
 		</p>
+
 		<p>
 			<%= image_tag @departement.attachments.first.photo.url(:medium
 			) if @departement.attachments.present? %>
@@ -52,9 +53,12 @@
 		<p>
 			<%= review.review %>
 		</p>
-		<% if current_user!=nil && review.user_id == current_user.id %>
-			<%= link_to 'Edit', edit_departement_review_path(@departement.id, review.id), method: :get, :class => 'btn btn-warning' %>
-			<%= link_to 'Destroy', departement_review_path(@departement.id, review.id), method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
+		<p>
+			<%= review.user.first_name %>
+		</p>
+			<% if user_signed_in? && review.user_id == current_user.id %>
+				<%= link_to 'Edit', edit_departement_review_path(@departement.id, review.id), method: :get, :class => 'btn btn-warning' %>
+				<%= link_to 'Destroy', departement_review_path(@departement.id, review.id), method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
+			<% end %>
 		<% end %>
-	<% end %>
 </div>

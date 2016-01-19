@@ -2,13 +2,8 @@
   <div class="row">
     <div class="col-lg-6">
       <h4>Departements</h4>
-      <% if current_user != nil%>
+      <% if user_signed_in? %>
         <h4> Welcome, <%=current_user.first_name %> <%=current_user.last_name %>  </h4>
-      <% end %>
-    </div>
-    <div class="col-lg-6 text-right">
-      <% if current_user != nil%>
-        <%= link_to 'Signout',  destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-md"%>
       <% end %>
     </div>
   </div>
@@ -39,7 +34,7 @@
       ), :class => "img-responsive" if departement.attachments.present? %>
     </p>
           <%= link_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %>
-          <% if current_user!=nil && departement.user_id == current_user.id %>
+          <% if user_signed_in? && departement.user_id == current_user.id %>
                 <td> <%= link_to 'Edit', edit_departement_path(departement), method: :get, :class => "btn btn-warning btn-md icon icon-bullhorn" %>
                 <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %>
           <% end %>
@@ -52,7 +47,7 @@
               <% end %>
             </tr>
           </table> -->
-          <% if current_user!=nil && departement.user_id == current_user.id %>
+          <% if user_signed_in? && departement.user_id == current_user.id %>
             <%= link_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
             <% if departement.category == 'Technical'%>
               <%= link_to 'Add Project', new_departement_project_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>

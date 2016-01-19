@@ -1,5 +1,5 @@
 	<p>
-	<%= @review.review %>
+		<%= @review.review %>
 	</p>
 	<% if current_user!=nil && @review.user_id == current_user.id %>
 		<%= link_to 'Edit', edit_departement_review_path(@departement.id, @review.id), method: :get, :class => 'btn btn-warning' %>

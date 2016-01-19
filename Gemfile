@@ -51,6 +51,10 @@ gem 'devise'
  gem 'activeadmin'
  gem "meta_search", '>= 1.1.0.pre'
 
+
+ #best_in_place to edit reviews
+ gem 'best_in_place'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
