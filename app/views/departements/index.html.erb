@@ -11,14 +11,6 @@
     <div class="col-lg-6">
       <%= link_to 'New Departement', new_departement_path, method: :get, :class => "btn btn-success btn-md" %>
     </div>
-    <div class="col-lg-6 text-right">
-      <%= form_tag departements_path, :method => 'get' do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
-        </p>
-      <% end %>
-    </div>
   </div>
 <br />
 <!-- <div class="container"> -->
