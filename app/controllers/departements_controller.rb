@@ -7,7 +7,7 @@ class DepartementsController < ApplicationController
 	def index
     # @departements = Departement.all
     if params[:search]
-      @departements = Departement.search params[:search]
+      @departements = Departement.search params[:search], :conditions => { :created_at => 1.week.ago.to_i..Time.now.to_i }
     else
       @departements = Departement.all
     end

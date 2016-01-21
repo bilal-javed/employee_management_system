@@ -16,6 +16,8 @@ class Departement < ActiveRecord::Base
   define_index do
   	indexes name
   	indexes category
+
+    has created_at
   end
   
 end

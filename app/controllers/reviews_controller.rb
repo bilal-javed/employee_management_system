@@ -1,6 +1,6 @@
 class ReviewsController < InheritedResources::Base
 
-  before_filter :authenticate_user!, only: [:new]
+  before_filter :authenticate_user!, only: [:create]
   before_filter :set_review, only: [:show, :edit, :update, :destroy]
   before_filter :set_departement, only: [:create, :edit, :destroy]
   before_filter :revoke_user, only: [:edit, :update]
@@ -39,7 +39,12 @@ class ReviewsController < InheritedResources::Base
 
   def update
     @review.update_attributes(params[:review])
-    redirect_to @review.departement
+    # redirect_to @review.departement
+    respond_to do |format|
+        format.html { redirect_to @review.departement  }
+        # format.json { render json: comment }
+        format.js
+    end
   end
 
   def destroy
