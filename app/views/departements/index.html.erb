@@ -21,15 +21,15 @@
 <br />
 <!-- <div class="container"> -->
   <div class="row">
-    <div class="col-lg-12">
+    <div>
       <%@departements.each do |departement|%>
-        <div class="col-lg-3 bg-primary custom-style">  <!-- panel panel-primary -->
+        <div class="col-sm-6 col-xs-12 col-md-3 col-lg-3 custom-style margin col-md-offset-1">  <!-- panel panel-primary -->
           <h4 class="lead"><%= departement.name %></h4>
           <p><%= departement.email %></p>
           <p><%= departement.phone %></p> <br />
           <p>
       <%= image_tag departement.attachments.first.photo.url(:medium
-      ), :class => "img-responsive" if departement.attachments.present? %>
+      ), :class => "img-responsive img-thumbnail" if departement.attachments.present? %>
     </p>
           <%= link_to 'Show', departement, method: :get, :class => "btn btn-info btn-md" %>
           <% if user_signed_in? && departement.user_id == current_user.id %>
@@ -44,7 +44,7 @@
                 <td> <%= link_to 'Destroy', departement, method: :delete, :class => "btn btn-danger btn-md", data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
-          </table> -->
+          </table> --> <br />
           <% if user_signed_in? && departement.user_id == current_user.id %>
             <%= link_to 'Add Employee', new_departement_employee_path(departement.id), method: :get,:class => "btn btn-success btn-md" %>
             <% if departement.category == 'Technical'%>

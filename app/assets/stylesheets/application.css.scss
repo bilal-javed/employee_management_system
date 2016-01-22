@@ -13,14 +13,14 @@
 @import "bootstrap";
 
 .custom-style{
-/*	margin: 1%;
-*	padding: 1%;
-*/
+/*	margin: 1%; */
 	height: 391px;
+	background-color: #428BCA;
 }
 
 .custom-style img{
 	height: 170px;
+	width: 250px;
 }
 
 table tr td{
@@ -32,8 +32,15 @@ table tr td{
 	padding: 1%;
 }
 span{
-	color: #fff;
+	color: #333;
 }
 .login{
 	margin: atuo;
+}
+body{
+	background-color: #F3F2EE;
+}
+
+.col-border{
+	
 }
