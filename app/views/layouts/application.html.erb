@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,8 +21,8 @@
 		      <% end %>
 					<%= link_to 'Sign Out',  destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-sm" %>
 					<% else %>
-						<%= link_to 'Sing Up', new_user_registration_path, method: :get %>
-						<%= link_to 'Sing In', new_user_session_path, method: :get %>
+						<%= link_to 'Sign Up', new_user_registration_path, method: :get %>
+						<%= link_to 'Sign In', new_user_session_path, method: :get %>
 					<% end %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

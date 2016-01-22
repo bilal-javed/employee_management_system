@@ -47,16 +47,12 @@ class EmployeesController < ApplicationController
 
     @projects = Project.where(:id => params[:project])
     @employee.projects << @projects
-
-
-
+    
     @employee.save
-    # redirect_to @employee.departement
-    # redirect_to departements_path
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to departements_path, notice: 'Employee was successfully created.' }
-        format.json { render json: departements_path, status: :created, location: departements_path }
+        format.html { redirect_to departement_employees_path(@department), notice: 'Employee was successfully created.' }
+        format.json { render json: departement_employees_path(@department), status: :created, location: departement_employees_path(@department) }
       else
         format.html { render action: "new" }
         format.json { render json: @employee.errors, status: :unprocessable_entity }
